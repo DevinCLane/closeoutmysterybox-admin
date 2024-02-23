@@ -42,7 +42,9 @@ export const StoreModal = () => {
 
             const response = await axios.post("/api/stores", values);
 
-            toast.success("Store created.");
+            // this does a complete refresh on our page
+            // sometimes the Next router does not keep things synced with the database
+            window.location.assign(`/${response.data.id}`);
         } catch (error) {
             toast.error("Something went wrong.");
             console.log(error);
