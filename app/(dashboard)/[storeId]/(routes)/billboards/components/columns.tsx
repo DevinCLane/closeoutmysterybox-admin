@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 export type BillboardColumn = {
     id: string;
     label: number;
-    cratedAt: string;
+    createdAt: string;
 };
 
 export const columns: ColumnDef<BillboardColumn>[] = [
