@@ -74,7 +74,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
             if (initialData) {
                 // update the Category if we have initial data
                 await axios.patch(
-                    `/api/${params.storeId}/categories/${params.CategoryId}`,
+                    `/api/${params.storeId}/categories/${params.categoryId}`,
                     data
                 );
             } else {
@@ -95,14 +95,14 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
         try {
             setLoading(true);
             await axios.delete(
-                `/api/${params.storeId}/categories/${params.CategoryId}`
+                `/api/${params.storeId}/categories/${params.categoryId}`
             );
             router.refresh();
             router.push(`/${params.storeId}/categories`);
             toast.success("Category deleted.");
         } catch (error) {
             toast.error(
-                "Make sure you remove all categories using this Category first."
+                "Make sure you remove all products using this category first."
             );
         } finally {
             setLoading(false);
